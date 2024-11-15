@@ -1,0 +1,149 @@
+version: '3.4'
+
+services:
+  reis:
+    image: "organization-reis:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.Reis/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  ncreif:
+    image: "organization-ncreif:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.Ncreif/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  assets:
+    image: "organization-assets:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.Assets/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  models:
+    image: "organization-models:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.Models/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  comboproperties:
+    image: "organization-comboproperties:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.ComboProperties/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  applogs:
+    image: "organization-applogs:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.AppLogs/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  calc:
+    image: "organization-calc:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.Calc/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  asynctasks:
+    image: "organization-asynctasks:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.AsyncTasks/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  calchelpers:
+    image: "organization-calchelpers:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Api/Organization.Platform.Api.CalcHelpers/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  cfsync:
+    image: "organization-cfsync:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Workers/Organization.Platform.Workers.cfSync/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  emailsender:
+    image: "organization-emailsender:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Workers/Organization.Platform.Workers.EmailSender/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  cleanup:
+    image: "organization-cleanup:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Workers/Organization.Platform.Workers.Cleanup/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  cacherenewal:
+    image: "organization-cacherenewal:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Workers/Organization.Platform.Workers.CacheRenewal/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+  internalsync:
+    image: "organization-internalsync:${TAG}"
+    network_mode: "host"
+    build:
+      context: .
+      dockerfile: Core/Workers/Organization.Platform.Workers.InternalSync/Dockerfile
+      secrets:
+      - NEXUS_USERNAME
+      - NEXUS_PASSWORD
+
+
+secrets:
+  NEXUS_USERNAME:
+    environment: NEXUS_USERNAME
+  NEXUS_PASSWORD:
+    environment: NEXUS_PASSWORD
