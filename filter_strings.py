@@ -2,7 +2,13 @@
 
 def filter_strings(input_list):
     """Returns a collection of unique strings starting with `TRG_`."""
-    pass
+    the_set = set()
+    for word in input_list:
+        if word.startswith("TRG_"):
+            the_set.add(word)
+    
+    return the_set
+
 
 
 if __name__ == '__main__':
