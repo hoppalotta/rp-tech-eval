@@ -9,6 +9,7 @@ COPY app.py .
 # Run Stage
 FROM python:3.11-slim AS run
 WORKDIR /app
-COPY --from=builder /app .
+RUN pip install flask
+COPY --from=build /app .
 EXPOSE 8080
 CMD ["python", "app.py"]
